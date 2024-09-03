@@ -1,11 +1,10 @@
 
-import { Routes, Route, NavLink } from "react-router-dom";
-// import clsx from 'clsx';
+import { Routes, Route } from "react-router-dom";
 import css from './App.module.css';
 import HomePage from "../../pages/HomePage";
 import MaviesPage from "../../pages/MaviesPage";
 import Products from "../../pages/Products";
-import NotFound from "../../pages/NotFound";
+import NotFoundPage from "../../pages/NotFoundPage";
 import MovieDetailsPage from "../../pages/MovieDetailsPage";
 import Navigation from '../Navigation/Navigation';
 import { Mission } from '../Mission';
@@ -23,10 +22,12 @@ export default function App() {
           <Route path="mission" element={<Mission />} />
           <Route path="team" element={<Team />} />
           <Route path="reviews" element={<Reviews />} />
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
+          <Route path="*" element={<div>Not found!!!</div>} />
         </Route>
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<MovieDetailsPage />} />
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
     </div>
   );

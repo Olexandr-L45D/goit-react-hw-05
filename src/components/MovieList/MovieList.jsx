@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom';
 import css from './MovieList.module.css';
 
-export const ProductList = ({ products }) => {
+export default function ProductList({ products }) {
     return (
         <div className={css.container}>
             {products.map((product) => (

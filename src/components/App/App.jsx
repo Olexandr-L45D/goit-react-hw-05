@@ -2,12 +2,12 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 // import clsx from 'clsx';
 import css from './App.module.css';
-//import Home from "path/to/pages/HomePage";
-// import About from "path/to/pages/MoviesPage";
-// import Products from "path/to/pages/Products";
-// import NotFound from 'path/to/pages/NotFound';
-// import ProductDetails from "path/to/pages/MovieDetailsPage";
-import AppBar from '../AppBar/AppBar';
+import HomePage from "../../pages/HomePage";
+import MaviesPage from "../../pages/MaviesPage";
+import Products from "../../pages/Products";
+import NotFound from "../../pages/NotFound";
+import MovieDetailsPage from "../../pages/MovieDetailsPage";
+import Navigation from '../Navigation/Navigation';
 import { Mission } from '../Mission';
 import { Team } from '../Team';
 import { Reviews } from '../Reviews';
@@ -15,17 +15,17 @@ import { Reviews } from '../Reviews';
 export default function App() {
   return (
     <div className={css.container}>
-      <AppBar />
+      <Navigation />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<MaviesPage />}>
           <Route path="mission" element={<Mission />} />
           <Route path="team" element={<Team />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/products/:id" element={<MovieDetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

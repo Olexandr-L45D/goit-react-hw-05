@@ -2,7 +2,7 @@
 
 import { Link, Outlet } from 'react-router-dom';
 
-export default function About() {
+export default function MaviesPage() {
     return (
         <main>
             <h1>About Us</h1>

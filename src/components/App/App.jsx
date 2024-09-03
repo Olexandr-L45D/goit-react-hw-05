@@ -2,17 +2,17 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 // import clsx from 'clsx';
 import css from './App.module.css';
-import Home from "path/to/pages/HomePage";
-import About from "path/to/pages/MoviesPage";
-import Products from "path/to/pages/Products";
-import NotFound from 'path/to/pages/NotFound';
-import ProductDetails from "path/to/pages/MovieDetailsPage";
-import { AppBar } from '../AppBar/AppBar';
-import { Mission } from './Mission';
-import { Team } from './Team';
-import { Reviews } from './Reviews';
+//import Home from "path/to/pages/HomePage";
+// import About from "path/to/pages/MoviesPage";
+// import Products from "path/to/pages/Products";
+// import NotFound from 'path/to/pages/NotFound';
+// import ProductDetails from "path/to/pages/MovieDetailsPage";
+import AppBar from '../AppBar/AppBar';
+import { Mission } from '../Mission';
+import { Team } from '../Team';
+import { Reviews } from '../Reviews';
 
-export const App = () => {
+export default function App() {
   return (
     <div className={css.container}>
       <AppBar />

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // import { getProducts } from '../../fakeApi';
 import { getProducts } from '../home-photo';
 
-
+// Payments
 export default function Products() {
     const [products, setProduct] = useState([]);
     // const [loading, setLoading] = useState(false)

@@ -10,7 +10,7 @@
 
 import { Link } from "react-router-dom";
 import css from "./MovieCast.module.css";
-
+//PaymentCard
 export default function MovieCast({
     product: { id, cardOwner, amount, description },
 }) {

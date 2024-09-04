@@ -1,9 +1,18 @@
 // MovieDetailsPage
+
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
     const { productId } = useParams();
-    return <div>Now showing product with id - {productId}</div>;
-};
+    useEffect(() => {
+        async function fechData() {
+            const data = await getProductById(productId);
+        }
+        fechData();
+    }, [productId])
 
-export default { MovieDetailsPage }
+    const params = useParams();
+    console.log(params);
+
+    return (<div> MovieDetailsPage! Now showing product with id - {productId}</div>);
+}

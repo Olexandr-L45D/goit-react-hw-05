@@ -1,6 +1,9 @@
 
 // HomePage
 export default function HomePage() {
+    //const [home, setHome] = useState([]);
+    // const [loading, setLoading] = useState(false)
+    // const [error, setError] = useState(false)
     return (
         <main>
             <h1>Welcome</h1>

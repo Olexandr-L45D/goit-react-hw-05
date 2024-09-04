@@ -3,6 +3,9 @@
 import { Link, Outlet } from 'react-router-dom';
 
 export default function MaviesPage() {
+    //const [mavies, setMavies] = useState([]);
+    // const [loading, setLoading] = useState(false)
+    // const [error, setError] = useState(false)
     return (
         <main>
             <h1>About Us</h1>

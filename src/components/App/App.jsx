@@ -24,15 +24,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/about" element={<MaviesPage />}>
+          <Route path="/movies" element={<MaviesPage />}>
             <Route path="mission" element={<Mission />} />
             <Route path="team" element={<Team />} />
             <Route path="reviews" element={<Reviews />} />
-            {/* <Route path="*" element={<NotFoundPage />} /> */}
-            <Route path="*" element={<div>Not found!!!</div>} />
           </Route>
 
-          <Route path="/products" element={<Products />} />
 
           <Route path="/products/:productId" element={<MovieDetailsPage />} >
             <Route path="bank" element={<PaymentReceipt />} />

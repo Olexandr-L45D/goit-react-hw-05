@@ -1,22 +1,37 @@
 // MoviesPage / About
 
 import { Link, Outlet } from 'react-router-dom';
+import MovieList from '../components/MovieList/MovieList';
+import { useEffect, useState } from "react";
+import { useSearchParams } from 'react-router-dom';
+import SearchForm from "../components/SearchForm/SearchForm";
+import { getProducts } from '../home-photo';
+import { getProductById } from '../home-photo';
 
+// Payments
 export default function MaviesPage() {
-    //const [mavies, setMavies] = useState([]);
+    const [products, setProduct] = useState([]);
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false)
+    // const products = getProducts();
+    //const [searchParams, setSearchParams] = useSearchParams();
+    // console.log(searchParams.get(""));
+    const [params] = useSearchParams();
+    const owner = params.get("owner") ?? "";
+
+    useEffect(() => {
+        async function fetchData() {
+            const data = await getProducts(owner);
+            setProduct(data);
+        }
+        fetchData();
+    }, [owner]);
+
     return (
         <main>
-            <h1>About Us</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus
-                laborum amet ab cumque sit nihil dolore modi error repudiandae
-                perspiciatis atque voluptas corrupti, doloribus ex maiores quam magni
-                mollitia illum dolor quis alias in sequi quod. Sunt ex numquam hic
-                asperiores facere natus sapiente cum neque laudantium quam.
-
-            </p>
+            <h1>About Mavies</h1>
+            <SearchForm />
+            {products.length > 0 && <MovieList products={products} />}
             <ul>
                 <li>
                     <Link to="mission">Read about our mission</Link>
@@ -35,3 +50,4 @@ export default function MaviesPage() {
         </main>
     );
 }
+

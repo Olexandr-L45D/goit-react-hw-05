@@ -1,6 +1,6 @@
 // MovieDetailsPage
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../home-photo"
 import Movies from "../components/Movies/Movies"
@@ -25,7 +25,7 @@ export default function MovieDetailsPage() {
 
     return (
         <div>
-            <div> MovieDetailsPage! Now showing product with id - {productId}</div>
+            <div> MovieDetailsVideo! Now showing product with id - {productId}</div>
             {detail && <Movies product={detail} />}
             <ul>
                 <li>
@@ -37,7 +37,9 @@ export default function MovieDetailsPage() {
                     <NavLink to="receipt">Receipt</NavLink>
                 </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<div>LOADING DetailsVideo...</div>}>
+                <Outlet />
+            </Suspense>
         </div>
     );
 }

@@ -9,7 +9,7 @@ export const getProducts = async (owner) => {
 };
 //getProductById робить запит на УРЛ з деталізацією про товар (додаю в окремий стан при монтуванні в компонент MovieDetailsPage)
 export const getProductById = async (productId) => {
-    const response = await axios.get(`/payments/${productId}`);
+    const response = await axios.get(`/products/${productId}`);
     return response.data;
 };
 

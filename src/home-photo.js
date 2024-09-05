@@ -3,16 +3,15 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://65c23f3af7e6ea59682af8d1.mockapi.io";
 //getProducts робить запит на базовий УРЛ
-export const getProducts = async () => {
-    const response = await axios.get("/payments");
+export const getProducts = async (owner) => {
+    const response = await axios.get(`/payments?search=${owner}`);
     return response.data;
 };
 //getProductById робить запит на УРЛ з деталізацією про товар (додаю в окремий стан при монтуванні в компонент MovieDetailsPage)
-export const getProductById = async (paymentId) => {
-    const response = await axios.get(`/payments/${paymentId}`);
+export const getProductById = async (productId) => {
+    const response = await axios.get(`/payments/${productId}`);
     return response.data;
 };
-
 
 // export const getProducts = () => {
 //     return products;

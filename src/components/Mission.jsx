@@ -2,7 +2,7 @@
 export const Mission = () => {
     return (
         <section>
-            <h2>Our mission</h2>
+            <h2>Our mission Compani </h2>
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, nesciunt
                 veniam.

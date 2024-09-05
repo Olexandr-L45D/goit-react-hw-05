@@ -10,6 +10,8 @@ import Navigation from '../Navigation/Navigation';
 import { Mission } from '../Mission';
 import { Team } from '../Team';
 import { Reviews } from '../Reviews';
+import PaymentReceipt from "../PayRaceipt"
+import BancInfo from "../BancInfo"
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route path="/about" element={<MaviesPage />}>
           <Route path="mission" element={<Mission />} />
           <Route path="team" element={<Team />} />
@@ -25,9 +28,14 @@ export default function App() {
           {/* <Route path="*" element={<NotFoundPage />} /> */}
           <Route path="*" element={<div>Not found!!!</div>} />
         </Route>
+
         <Route path="/products" element={<Products />} />
-        <Route path="/products/:productId" element={<MovieDetailsPage />} />
-        {/* <Route path="/products/:productId" element={<div>Hello! MovieDetailsPage</div>} /> */}
+
+        <Route path="/products/:productId" element={<MovieDetailsPage />} >
+          <Route path="bank" element={<PaymentReceipt />} />
+          <Route path="receipt" element={<BancInfo />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

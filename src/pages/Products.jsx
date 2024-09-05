@@ -2,8 +2,10 @@
 
 import MovieList from '../components/MovieList/MovieList';
 import { useEffect, useState } from "react";
-// import { getProducts } from '../../fakeApi';
+import { useSearchParams } from 'react-router-dom';
+import SearchForm from "../components/SearchForm/SearchForm";
 import { getProducts } from '../home-photo';
+import { getProductById } from '../home-photo';
 
 // Payments
 export default function Products() {
@@ -11,17 +13,23 @@ export default function Products() {
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false)
     // const products = getProducts();
+    //const [searchParams, setSearchParams] = useSearchParams();
+    // console.log(searchParams.get(""));
+    const [params] = useSearchParams();
+    const owner = params.get("owner") ?? "";
+
     useEffect(() => {
         async function fetchData() {
-            const data = await getProducts();
+            const data = await getProducts(owner);
             setProduct(data);
         }
         fetchData();
-    }, []);
+    }, [owner]);
 
     return (
         <div>
             <h1>Products Many Pages</h1>
+            <SearchForm />
             {products.length > 0 && <MovieList products={products} />}
         </div>
     );

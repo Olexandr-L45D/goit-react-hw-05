@@ -5,7 +5,7 @@ import MovieList from '../components/MovieList/MovieList';
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import SearchForm from "../components/SearchForm/SearchForm";
-import { getProducts } from '../tmdb-movies';
+import { getProductsSerch } from '../tmdb-movies';
 //import { getProductById } from '../tmdb-movies';
 
 // Payments
@@ -21,7 +21,7 @@ export default function MaviesPage() {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getProducts(owner);
+            const data = await getProductsSerch(owner);
             setProduct(data);
         }
         fetchData();

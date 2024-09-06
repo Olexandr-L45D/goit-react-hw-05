@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../home-photo"
+import { getProductById } from '../tmdb-movies';
 import Movies from "../components/Movies/Movies"
 import { NavLink, Outlet } from "react-router-dom";
 

@@ -1,29 +1,28 @@
 // MovieCast
-// import { useParams } from "react-router-dom";
-// import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-
-// const { movieId } = useParams();
-// useEffect(() => {
-//     if (!movieId) return;
-// }, [movieId])
 
 import { Link } from "react-router-dom";
 import css from "./MovieCast.module.css";
 //PaymentCard
 export default function MovieCast({
-    product: { id, cardOwner, amount, description },
+    product: { id, primary_release_year, region, year },
 }) {
+    const { movieId } = useParams();
+    useEffect(() => {
+        if (!movieId) return;
+    }, [movieId])
     return (
         <div className={css.wrapper}>
             <p>
-                <b>Card owner:</b> {cardOwner}
+                <b>Release:</b> {primary_release_year}
             </p>
             <p>
-                <b>Amount:</b> {amount}
+                <b>Region:</b> {region}
             </p>
             <p>
-                <b>Description:</b> {description}
+                <b>Year:</b> {year}
             </p>
 
             <Link to={`/products/${id}`}>Details</Link>

@@ -29,18 +29,18 @@ export default function MaviesPage() {
 
     return (
         <main>
-            <h1>About Mavies</h1>
+            <h1>Movie details</h1>
             <SearchForm />
             {products.length > 0 && <MovieList products={products} />}
             <ul>
                 <li>
-                    <Link to="mission">Read about our mission</Link>
+                    <Link to="Movie credits">Movie credits</Link>
                 </li>
                 <li>
                     <Link to="team">Get to know the team</Link>
                 </li>
                 <li>
-                    <Link to="reviews">Go through the reviews</Link>
+                    <Link to="Movie reviews">Go to Movie reviews</Link>
                 </li>
                 <li>
                     <p> Plese use this link to go Home <Link to="/">back to home</Link></p>
@@ -51,3 +51,4 @@ export default function MaviesPage() {
     );
 }
 
+// movie / movie_id ? language = en - US'

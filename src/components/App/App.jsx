@@ -4,12 +4,9 @@ import { lazy, Suspense } from "react"
 import css from './App.module.css';
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const MaviesPage = lazy(() => import("../../pages/MaviesPage"));
-const Products = lazy(() => import("../../pages/Products"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage"));
 const Navigation = lazy(() => import("../Navigation/Navigation"));
-const PaymentReceipt = lazy(() => import("../PayRaceipt"));
-const BancInfo = lazy(() => import("../BancInfo"));
 import { Mission } from '../Mission';
 import { Team } from '../Team';
 import { Reviews } from '../Reviews';
@@ -25,15 +22,15 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
 
           <Route path="/movies" element={<MaviesPage />}>
-            <Route path="mission" element={<Mission />} />
+            <Route path="Movie credits" element={<Mission />} />
             <Route path="team" element={<Team />} />
-            <Route path="reviews" element={<Reviews />} />
+            <Route path="Movie reviews" element={<Reviews />} />
           </Route>
 
 
           <Route path="/products/:productId" element={<MovieDetailsPage />} >
-            <Route path="bank" element={<PaymentReceipt />} />
-            <Route path="receipt" element={<BancInfo />} />
+
+
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

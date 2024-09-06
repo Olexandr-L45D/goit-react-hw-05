@@ -28,11 +28,12 @@ async function getProducts(query, owner) {
 export { getProducts };
 //getProductById робить запит на УРЛ з деталізацією про товар (додаю в окремий стан при монтуванні в компонент MovieDetailsPage)
 export const getProductById = async (productId) => {
-    const response = await axios.get(`/products/${productId}`);
+    const response = await axios.get(`/movie_id ? language = en - US${productId}`);
+    // const response = await axios.get(`/products/${productId}`);
     return response.data;
 };
 
-
+// '/ movie_id ? language = en - US'
 // const ENDPOINT = "https://api.themoviedb.org/";
 // const API_KEY = "9a05b40a5bd599054220f4497ba3b2f5";
 // const params = {

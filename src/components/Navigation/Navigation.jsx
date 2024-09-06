@@ -14,7 +14,7 @@ export default function Navigation() {
                 <span role="img" aria-label="computer icon">
                     💻
                 </span>{' '}
-                Navigation My Stores
+                Navigation
             </p>
 
             <nav className={css.nav}>
@@ -24,9 +24,6 @@ export default function Navigation() {
                 <NavLink to="/movies" className={newLinkClass}>
                     Movies
                 </NavLink>
-                {/* <NavLink to="/products" className={newLinkClass}>
-                    Products
-                </NavLink> */}
             </nav>
         </header>
     );

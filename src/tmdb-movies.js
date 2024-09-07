@@ -13,8 +13,10 @@ async function getProductsSerch(query, page = 1) {
         params: {
             page,
             query: query,
-            // include_adult: false,
-            // language: "en-US",
+            include_adult: false,
+            language: "en-US",
+            region: "string",
+            year: "string"
             // primary_release_year: string,
             // append_to_response: string,
             // region: string,
@@ -25,33 +27,33 @@ async function getProductsSerch(query, page = 1) {
         .then(response => console.log(response))
         .catch(err => console.error(err));
 
-    return response.data;
+    return {
+        results: response.data.results,
+        total_pages: response.data.total_pages,
+    };
 };
 export { getProductsSerch };
 
 //getProductById робить запит на УРЛ з деталізацією про товар (додаю в окремий стан при монтуванні в компонент MovieDetailsPage)
 export const getProductDetails = async (movie_id) => {
     const response = await instance.get(`/movie/${movie_id}`)
-        .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
-    return response.data;
+    return response.data.results;
 };
 
 export const getProductMovies = async () => {
 
     const response = await instance.get('https://api.themoviedb.org/3/trending/movie/day')
-        .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
-    return response.data;
+    return response.data.results;
 };
 
 
 // export const getProductSerch = async () => {
 
 //     const response = await instance.get('https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1')
-//         .then(response => response.json())
 //         .then(response => console.log(response))
 //         .catch(err => console.error(err));
 //     return response.data;
@@ -60,7 +62,6 @@ export const getProductMovies = async () => {
 // export const getProductDetails = async () => {
 
 //     const response = await instance.get('https://api.themoviedb.org/3/movie/movie_id?language=en-US')
-//         .then(response => response.json())
 //         .then(response => console.log(response))
 //         .catch(err => console.error(err));
 //     return response.data;
@@ -70,17 +71,17 @@ export const getProductMovies = async () => {
 export const getProductCregits = async () => {
 
     const response = await instance.get('https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US')
-        .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
-    return response.data;
+    return response.data.results;
 };
 
 export const getProductReviews = async () => {
 
     const response = await instance.get('https://api.themoviedb.org/3/movie/movie_id/reviews?language=en-US&page=1')
-        .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
-    return response.data;
+    return response.data.results;
 };
+
+// повний шлях до зображення: https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg

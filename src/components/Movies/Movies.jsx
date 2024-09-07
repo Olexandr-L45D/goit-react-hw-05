@@ -1,13 +1,18 @@
 // Movies / PaymentInfo
 
-export default function Movies({ product }) {
+import css from "./Movies.module.css"
+import { FcCamcorderPro } from "react-icons/fc";
+
+
+export default function Movies({ product: { movie_id, name, language } }) {
     return (
-        <div>
-            <p>ID: {product.movie_id}</p>
-            <p>Append: {product.append_to_response}</p>
-            <p>Language: {product.language}</p>
-            <p>Descrioption: {product.description}</p>
+        <div className={css.item}>
+            <div className={css.itemText}>
+                <p className={css.text}><FcCamcorderPro />{name}</p>
+                <p className={css.text}>Language: {language}</p>
+
+            </div>
+
         </div>
     );
 }
-

@@ -1,18 +1,49 @@
 
 // HomePage
+import { useState, useEffect } from "react"
+import { getProductsSerch } from '../tmdb-movies';
+import { useSearchParams } from 'react-router-dom';
+import MovieList from "../components/MovieList/MovieList"
 export default function HomePage() {
+    const [products, setProduct] = useState([]);
     //const [home, setHome] = useState([]);
     // const [loading, setLoading] = useState(false)
-    // const [error, setError] = useState(false)
+    // const [error, setError] = useState(false);
+    const [params] = useSearchParams();
+    const owner = params.get("owner") ?? "";
+
+    useEffect(() => {
+        async function fetchData() {
+            const data = await getProductsSerch(owner);
+            setProduct(data);
+        }
+        fetchData();
+    }, [owner]);
+
     return (
         <main>
-            <h1>Welcome</h1>
-            <img src="https://via.placeholder.com/960x240" alt="" />
-            <p>
-                Hello! Y a at home. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-                laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-                voluptatum voluptate.
-            </p>
+            <h1>Welcome to HomePage</h1>
+            {products.length > 0 && <MovieList products={products} />}
+
         </main>
     );
 }
+
+
+// {/* <ul >   <MovieList products={visibleTasks}  />  </ul> */ }
+// це додаю в іншу на серч при пошуку products={visibleTasks}
+
+
+// import Contact from "../Contact/Contact"
+
+// export default function ContactList({ tasks, onDelete }) {
+//     return (
+//         <ul className={css.list}>
+//             {tasks.map((task) => (
+//                 <li className={css.item} key={task.id} >
+//                     <Contact obj={task} onDelete={onDelete} />
+//                 </li>
+//             ))}
+//         </ul>
+//     );
+// }

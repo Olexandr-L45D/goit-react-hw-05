@@ -15,6 +15,7 @@ export default function MovieCast({
     }, [movieId])
     return (
         <div className={css.wrapper}>
+            {/* <img className={css.imag} src={small} alt={tags} onClick={onClick} /> */}
             <p>
                 <b>Release:</b> {primary_release_year}
             </p>

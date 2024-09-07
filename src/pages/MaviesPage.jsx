@@ -11,6 +11,7 @@ import { getProductsSerch } from '../tmdb-movies';
 // Payments
 export default function MaviesPage() {
     const [products, setProduct] = useState([]);
+    const [filter, setFilter] = useState('');
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false)
     // const products = getProducts();
@@ -26,12 +27,14 @@ export default function MaviesPage() {
         }
         fetchData();
     }, [owner]);
+    const visibleTasks = products.filter((task) =>
+        task.name.toLowerCase().includes(filter.toLowerCase()));
 
     return (
         <main>
             <h1>Movie details</h1>
             <SearchForm />
-            {products.length > 0 && <MovieList products={products} />}
+            {products.length > 0 && <MovieList products={visibleTasks} />}
             <ul>
                 <li>
                     <Link to="Movie credits">Movie credits</Link>

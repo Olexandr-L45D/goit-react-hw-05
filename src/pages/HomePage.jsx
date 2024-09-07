@@ -33,17 +33,3 @@ export default function HomePage() {
 // {/* <ul >   <MovieList products={visibleTasks}  />  </ul> */ }
 // це додаю в іншу на серч при пошуку products={visibleTasks}
 
-
-// import Contact from "../Contact/Contact"
-
-// export default function ContactList({ tasks, onDelete }) {
-//     return (
-//         <ul className={css.list}>
-//             {tasks.map((task) => (
-//                 <li className={css.item} key={task.id} >
-//                     <Contact obj={task} onDelete={onDelete} />
-//                 </li>
-//             ))}
-//         </ul>
-//     );
-// }

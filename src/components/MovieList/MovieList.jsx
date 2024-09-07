@@ -3,12 +3,12 @@
 import MovieCast from "../MovieCast/MovieCast";
 import css from "./MovieList.module.css";
 
-export default function MovieList({ products }) {
+export default function MovieList({ products, onClick }) {
     return (
         <ul className={css.list}>
             {products.map((product) => (
                 <li key={product.id}>
-                    <MovieCast product={product} />
+                    <MovieCast onClick={() => onClick(product)} product={product} />
                 </li>
             ))}
         </ul>

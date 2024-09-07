@@ -7,9 +7,11 @@ const MaviesPage = lazy(() => import("../../pages/MaviesPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage"));
 const Navigation = lazy(() => import("../Navigation/Navigation"));
-import { Mission } from '../Mission';
-import { Team } from '../Team';
-import { Reviews } from '../Reviews';
+const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
+const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
+// import { Mission } from '../Mission';
+// import { Team } from '../Team';
+// import { Reviews } from '../Reviews';
 
 
 export default function App() {
@@ -17,24 +19,15 @@ export default function App() {
     <div className={css.container}>
       <Navigation />
       <Suspense fallback={<div>LOADING General-Video...</div>}>
-
         <Routes>
           <Route path="/" element={<HomePage />} />
-
-          <Route path="/movies" element={<MaviesPage />}>
-            <Route path="Movie credits" element={<Mission />} />
-            <Route path="team" element={<Team />} />
-            <Route path="Movie reviews" element={<Reviews />} />
-          </Route>
-
-
-          <Route path="/products/:productId" element={<MovieDetailsPage />} >
-
-
+          <Route path='/movies' element={<MaviesPage />} />
+          <Route path='/movies/:movieId' element={<MovieDetailsPage />} >
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-
       </Suspense>
     </div>
   );

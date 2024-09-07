@@ -2,39 +2,44 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from '../tmdb-movies';
-import Movies from "../components/Movies/Movies"
+import { getProductDetails } from '../tmdb-movies';
+// import Movies from "../components/Movies/Movies"
+// import MovieCast from "../MovieCast/MovieCast";
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function MovieDetailsPage() {
     const [detail, setDetail] = useState(null);
-    const { productId } = useParams();
+    const { movieId } = useParams();
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false)
 
     useEffect(() => {
         async function fechData() {
-            const data = await getProductById(productId);
-            setDetail(data)
+            setDetail(null);
+            const data = await getProductDetails(movieId);
+            setDetail(data);
         }
         fechData();
-    }, [productId])
+    }, [movieId])
 
-    const params = useParams();
-    console.log(params);
+    // const { title, poster_path } = detail;
+    // console.log(poster_path);
+    // console.log(title);
+    console.log(detail);
 
     return (
         <div>
-            <div> MovieDetailsVideo! Now showing product with id - {productId}</div>
-            {detail && <Movies product={detail} />}
+            <div>
+                <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
+                <h1>{title}</h1>
+            </div>
+
             <ul>
                 <li>
-                    <NavLink to="bank">Bank</NavLink>
+                    <NavLink to="cast">MovieCast</NavLink>
                 </li>
-            </ul>
-            <ul>
                 <li>
-                    <NavLink to="receipt">Receipt</NavLink>
+                    <NavLink to="reviews">MovieReviews</NavLink>
                 </li>
             </ul>
             <Suspense fallback={<div>LOADING DetailsVideo...</div>}>

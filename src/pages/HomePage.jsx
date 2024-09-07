@@ -1,7 +1,7 @@
 
 // HomePage
 import { useState, useEffect } from "react"
-import { getProductsSerch } from '../tmdb-movies';
+import { getProductMovies } from '../tmdb-movies';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from "../components/MovieList/MovieList"
 export default function HomePage() {
@@ -10,21 +10,21 @@ export default function HomePage() {
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false);
     const [params, setParams] = useSearchParams();
-    const owner = params.get("owner") ?? "";
+    // const owner = params.get("owner") ?? "";
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getProductsSerch(owner);
+            const data = await getProductMovies();
             setProduct(data);
             // params.set("owner")
             // setParams(params)
         }
         fetchData();
-    }, [owner]);
+    }, []);
 
     return (
         <main>
-            <h3>Welcome to HomePage</h3>
+            <h3>Trending today</h3>
             {products.length > 0 && <MovieList products={products} />}
 
         </main>

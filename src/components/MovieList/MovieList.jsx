@@ -1,14 +1,15 @@
 // MovieList
 
-import MovieCast from "../MovieCast/MovieCast";
+import { Link } from "react-router-dom";
+
 import css from "./MovieList.module.css";
 
-export default function MovieList({ products, onClick }) {
+export default function MovieList({ products }) {
     return (
         <ul className={css.list}>
             {products.map((product) => (
                 <li key={product.id}>
-                    <MovieCast onClick={() => onClick(product)} product={product} />
+                    <Link to={`/movies/${product.id}`} ><h3>{product.title}</h3></Link>
                 </li>
             ))}
         </ul>

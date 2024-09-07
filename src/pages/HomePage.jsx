@@ -9,20 +9,22 @@ export default function HomePage() {
     //const [home, setHome] = useState([]);
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false);
-    const [params] = useSearchParams();
+    const [params, setParams] = useSearchParams();
     const owner = params.get("owner") ?? "";
 
     useEffect(() => {
         async function fetchData() {
             const data = await getProductsSerch(owner);
             setProduct(data);
+            // params.set("owner")
+            // setParams(params)
         }
         fetchData();
     }, [owner]);
 
     return (
         <main>
-            <h1>Welcome to HomePage</h1>
+            <h3>Welcome to HomePage</h3>
             {products.length > 0 && <MovieList products={products} />}
 
         </main>

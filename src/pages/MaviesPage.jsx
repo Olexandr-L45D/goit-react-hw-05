@@ -32,7 +32,7 @@ export default function MaviesPage() {
 
     return (
         <main>
-            <h1>Movie details</h1>
+            <h3>Movie details</h3>
             <SearchForm />
             {products.length > 0 && <MovieList products={visibleTasks} />}
             <ul>

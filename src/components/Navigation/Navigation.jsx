@@ -10,13 +10,6 @@ const newLinkClass = ({ isActive }) => {
 export default function Navigation() {
     return (
         <header className={css.header}>
-            <p className={css.logo}>
-                <span role="img" aria-label="computer icon">
-                    💻
-                </span>{' '}
-                Navigation
-            </p>
-
             <nav className={css.nav}>
                 <NavLink to="/" className={newLinkClass}>
                     Home
@@ -28,3 +21,5 @@ export default function Navigation() {
         </header>
     );
 };
+
+// Navigation = header

@@ -2,14 +2,13 @@
 // HomePage
 import { useState, useEffect } from "react"
 import { getProductMovies } from '../tmdb-movies';
-import { useSearchParams } from 'react-router-dom';
+//import { useSearchParams } from 'react-router-dom';
 import MovieList from "../components/MovieList/MovieList"
 export default function HomePage() {
     const [products, setProduct] = useState([]);
-    //const [home, setHome] = useState([]);
     // const [loading, setLoading] = useState(false)
     // const [error, setError] = useState(false);
-    const [params, setParams] = useSearchParams();
+    // const [params, setParams] = useSearchParams();
     // const owner = params.get("owner") ?? "";
 
     useEffect(() => {

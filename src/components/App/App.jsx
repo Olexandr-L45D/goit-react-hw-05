@@ -9,10 +9,6 @@ const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage"));
 const Navigation = lazy(() => import("../Navigation/Navigation"));
 const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
 const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
-// import { Mission } from '../Mission';
-// import { Team } from '../Team';
-// import { Reviews } from '../Reviews';
-
 
 export default function App() {
   return (

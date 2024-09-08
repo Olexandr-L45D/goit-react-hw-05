@@ -40,9 +40,6 @@ export default function MaviesPage() {
                     <Link to="Movie credits">Movie credits</Link>
                 </li>
                 <li>
-                    <Link to="team">Get to know the team</Link>
-                </li>
-                <li>
                     <Link to="Movie reviews">Go to Movie reviews</Link>
                 </li>
                 <li>

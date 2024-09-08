@@ -6,9 +6,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import SearchForm from "../components/SearchForm/SearchForm";
 import { getProductsSerch } from '../tmdb-movies';
-//import { getProductById } from '../tmdb-movies';
 
-// Payments
 export default function MaviesPage() {
     const [products, setProduct] = useState([]);
     const [filter, setFilter] = useState('');
@@ -27,20 +25,17 @@ export default function MaviesPage() {
         }
         fetchData();
     }, [owner]);
-    const visibleTasks = products.filter((task) =>
-        task.name.toLowerCase().includes(filter.toLowerCase()));
 
     return (
         <main>
-            <h3>Movie details</h3>
             <SearchForm />
-            {products.length > 0 && <MovieList products={visibleTasks} />}
+            {products.length > 0 && <MovieList products={products} />}
             <ul>
                 <li>
-                    <Link to="Movie credits">Movie credits</Link>
+                    <Link to="movie ">Movie </Link>
                 </li>
                 <li>
-                    <Link to="Movie reviews">Go to Movie reviews</Link>
+                    <Link to="reviews">Reviews </Link>
                 </li>
                 <li>
                     <p> Plese use this link to go Home <Link to="/">back to home</Link></p>
@@ -51,4 +46,7 @@ export default function MaviesPage() {
     );
 }
 
+// const visibleTasks = products.filter((task) =>
+//     task.name.toLowerCase().includes(filter.toLowerCase()));
+// { products.length > 0 && <MovieList products={visibleTasks} /> }
 // movie / movie_id ? language = en - US'

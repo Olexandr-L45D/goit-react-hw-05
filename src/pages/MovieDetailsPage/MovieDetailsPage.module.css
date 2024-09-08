@@ -1,12 +1,169 @@
 /* style */
 .detailsCart {
-    width: 900px;
-    height: 700px;
+    width: 700px;
+    height: 500px;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: row;
-    /* flex-direction: column; */
+}
+
+.cartImagBut {
+    width: 500px;
+    height: 500px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+}
+
+.buttonIcon {
+    width: 120px;
+    height: 30px;
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+.icon {
+    width: 50px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    color: rgb(255, 0, 34);
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    align-items: right;
+}
+
+.cartCont {
+    width: 300px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.cartTitle {
+    width: 300px;
+    height: 30px;
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+.cartComent {
+    width: 300px;
+    height: auto;
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+.genresCart {
+    width: 300px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+.comTitle {
+    width: 120px;
+    height: 40px;
+    padding: 2px;
+    padding-right: 2px;
+    margin: 2px;
+    margin-right: 2px;
+    margin-left: 10px;
+    display: flex;
+    text-align: left;
+    align-items: left;
+}
+
+.comDate {
+    width: 100px;
+    height: 40px;
+    padding: 2px;
+    padding-right: 2px;
+    margin: 2px;
+    /* margin-right: 5px;
+    margin-left: 10px; */
+    display: flex;
+    text-align: left;
+    align-items: left;
+}
+
+.comTitles {
+    width: 160px;
+    height: 40px;
+    padding: 2px;
+    padding-right: 2px;
+    margin: 2px;
+    margin-right: 2px;
+    margin-left: 10px;
+    display: flex;
+    text-align: left;
+    align-items: left;
+}
+
+.comTitlesOv {
+    width: 160px;
+    height: auto;
+    padding: 2px;
+    padding-right: 2px;
+    margin: 2px;
+    margin-right: 2px;
+    margin-left: 10px;
+    display: flex;
+    text-align: top;
+    align-items: top;
+}
+
+.comIte {
+    width: 300px;
+    height: 40px;
+    padding: 2px;
+    padding-right: 5px;
+    margin: 2px;
+    margin-right: 5px;
+    margin-left: 10px;
+    display: flex;
+    text-align: left;
+    align-items: left;
+}
+
+.comItes {
+    width: 300px;
+    height: 300px;
+    padding: 2px;
+    padding-right: 5px;
+    margin: 2px;
+    margin-right: 5px;
+    margin-left: 10px;
+    display: flex;
+    text-align: left;
+    align-items: left;
 }
 
 .image {
@@ -32,48 +189,4 @@
     padding: 10px;
     border-bottom: 1px solid #ffffff;
     border-radius: 10px;
-}
-
-.icon {
-    padding: 1px;
-    margin: 1px;
-    color: rgb(255, 0, 34);
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-}
-
-.cardCommant {
-    width: 900px;
-    height: 50px;
-    padding: 0px;
-    margin: 0px;
-    margin-top: 4px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-}
-
-.comDescript {
-    width: 500px;
-    height: 45px;
-    padding: 2px;
-    margin: 2px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-}
-
-.comIte {
-    width: 200px;
-    height: 40px;
-    padding: 2px;
-    padding-right: 5px;
-    margin: 2px;
-    margin-right: 5px;
-    display: flex;
-    flex-direction: row;
 }

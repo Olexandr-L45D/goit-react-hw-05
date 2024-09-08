@@ -6,13 +6,15 @@ import css from "./MovieList.module.css";
 
 export default function MovieList({ products }) {
     return (
-        <ul className={css.list}>
-            {products.map((product) => (
-                <li key={product.id}>
-                    <Link to={`/movies/${product.id}`} ><h3>{product.title}</h3></Link>
-                </li>
-            ))}
-        </ul>
+        <div className={css.container}>
+            <ul className={css.list}>
+                {products.map((product) => (
+                    <li key={product.id}>
+                        <Link to={`/movies/${product.id}`} ><h3>{product.title}</h3></Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
 

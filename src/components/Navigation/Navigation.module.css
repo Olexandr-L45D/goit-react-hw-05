@@ -14,17 +14,6 @@
     border-bottom: 1px solid black;
 }
 
-/* .items {
-    width: 320px;
-    height: auto;
-    margin: 0px;
-    padding: 0px;
-    padding-top: 5px;
-    list-style: none;
-    text-align: left;
-    align-items: left;
-} */
-
 .nav {
     display: flex;
 }

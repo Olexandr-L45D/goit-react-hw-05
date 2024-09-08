@@ -6,6 +6,7 @@ const instance = axios.create({
     headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTA1YjQwYTViZDU5OTA1NDIyMGY0NDk3YmEzYjJmNSIsIm5iZiI6MTcyNTU5NDQyMy4yODc1ODgsInN1YiI6IjY2ZDllMWM1ZDhlODg1YWI4NDZkMDkxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TvbdXQqddSub5Mw59Uixse-OSNQE4Xunk36NlBhj_AM' }
 });
 
+//getProductMovies робить запит на УРЛ to SearchForm
 async function getProductsSerch(query, page = 1) {
     const response = await instance.get(`/search/movie`,
         {
@@ -24,6 +25,7 @@ async function getProductsSerch(query, page = 1) {
 };
 export { getProductsSerch };
 
+//getProductMovies робить запит на УРЛ to HomePage
 export const getProductMovies = async () => {
     const response = await instance.get('/trending/movie/day')
     return response.data.results;
@@ -36,14 +38,22 @@ export const getProductDetails = async (movie_id) => {
     return {
         title: response.data.title, poster_path: response.data.poster_path, release_date: response.data.release_date,
         vote_average: response.data.vote_average, overview: response.data.overview, status: response.data.status,
+        // genres: { id: response.data.id, name: response.data.name },
     }
 };
 
-export const getProductCregits = async (movie_id) => {
-    const response = await instance.get(`/movie/${movie_id}/credits`)
-    return response.data.cast;
+//getProductCast робить запит на УРЛ to component Movies
+export const getProductCast = async (movie_id) => {
+    const response = await instance.get(`/movie/${movie_id}`)
+    console.log(response.data)
+    return {
+        title: response.data.title, poster_path: response.data.poster_path, release_date: response.data.release_date,
+        vote_average: response.data.vote_average, overview: response.data.overview, status: response.data.status,
+        // genres: { id: response.data.id, name: response.data.name },
+    }
 };
 
+//getProductReviews робить запит на УРЛ to component MovieReviews
 export const getProductReviews = async () => {
     const response = await instance.get(`/movie/${movie_id}/reviews`)
     return response.data.results;

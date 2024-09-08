@@ -4,19 +4,23 @@ import { useState, useEffect } from "react"
 import { getProductMovies } from '../tmdb-movies';
 //import { useSearchParams } from 'react-router-dom';
 import MovieList from "../components/MovieList/MovieList"
+
 export default function HomePage() {
     const [products, setProduct] = useState([]);
-    // const [loading, setLoading] = useState(false)
-    // const [error, setError] = useState(false);
-    // const [params, setParams] = useSearchParams();
-    // const owner = params.get("owner") ?? "";
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getProductMovies();
-            setProduct(data);
-            // params.set("owner")
-            // setParams(params)
+            try {
+                setLoading(true);
+                setError(false);
+                const data = await getProductMovies();
+                setProduct(data);
+                setLoading(false);
+            } catch (error) {
+                setError("Sorry nothing found");
+            }
         }
         fetchData();
     }, []);
@@ -25,7 +29,6 @@ export default function HomePage() {
         <main>
             <h3>Trending today</h3>
             {products.length > 0 && <MovieList products={products} />}
-
         </main>
     );
 }

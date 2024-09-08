@@ -5,7 +5,7 @@ import css from './App.module.css';
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const MaviesPage = lazy(() => import("../../pages/MaviesPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
-const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage"));
+const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage/MovieDetailsPage"));
 const Navigation = lazy(() => import("../Navigation/Navigation"));
 const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
 const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));

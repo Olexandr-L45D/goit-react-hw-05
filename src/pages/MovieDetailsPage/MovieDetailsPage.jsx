@@ -1,8 +1,9 @@
 // MovieDetailsPage
 
+import css from "./MovieDetailsPage.module.css"
 import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductDetails } from '../tmdb-movies';
+import { getProductDetails } from '../../tmdb-movies';
 import { GoArrowLeft } from "react-icons/go";
 // import Movies from "../components/Movies/Movies"
 // import MovieCast from "../MovieCast/MovieCast";
@@ -24,8 +25,8 @@ export default function MovieDetailsPage() {
     // console.log(detail);
     return (
         <div>
-            <div>
-                <button><GoArrowLeft /> <Link to="/"> Go back</Link> </button>
+            <div className={css.detailsCart}>
+                <button><GoArrowLeft className={css.icon} /> <Link to="/"> Go back</Link> </button>
                 <img src={`https://image.tmdb.org/t/p/w300/${detail.poster_path}`} alt={detail.title} />
                 <h3>{detail.title}</h3>
                 <p>{detail.release_date}</p>

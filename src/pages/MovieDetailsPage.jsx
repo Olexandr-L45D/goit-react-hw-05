@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from '../tmdb-movies';
+import { GoArrowLeft } from "react-icons/go";
 // import Movies from "../components/Movies/Movies"
 // import MovieCast from "../MovieCast/MovieCast";
 import { NavLink, Link, Outlet } from "react-router-dom";
@@ -24,7 +25,7 @@ export default function MovieDetailsPage() {
     return (
         <div>
             <div>
-                <p> Go <Link to="/"> Go back</Link></p>
+                <button><GoArrowLeft /> <Link to="/"> Go back</Link> </button>
                 <img src={`https://image.tmdb.org/t/p/w300/${detail.poster_path}`} alt={detail.title} />
                 <h3>{detail.title}</h3>
                 <p>{detail.release_date}</p>
@@ -47,4 +48,6 @@ export default function MovieDetailsPage() {
             </Suspense>
         </div>
     );
-}
+};
+
+// className = { css.icon }

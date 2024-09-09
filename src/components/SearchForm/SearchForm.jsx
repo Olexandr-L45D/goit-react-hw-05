@@ -10,7 +10,6 @@ export default function SearchForm() {
     // const backLink = location.state?.from ?? '/';
     const handleSubmit = (event) => {
         event.preventDefault();
-        // setSerchParams({ query: values });
         params.set("owner", event.target.elements.owner.value);
         setParams(params);
         event.target.reset();
@@ -25,7 +24,7 @@ export default function SearchForm() {
             <h5 className={css.paragraf}>Search movie</h5>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="owner" />
-                <button type="submit">Search</button>
+                <button className={css.btn} type="submit">Search</button>
             </form>
 
         </div>

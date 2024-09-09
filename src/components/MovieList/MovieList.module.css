@@ -13,9 +13,16 @@
 .list {
     width: 1200px;
     height: auto;
-    margin: 2px;
+    margin: 1px;
     margin-left: 20px;
-    padding: 2px;
+    padding: 1px;
+}
+
+.titles {
+    color: black;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
 }
 
 .cardWrapper {

@@ -1,11 +1,12 @@
-// MoviesPage / About
 
+// MoviesPage 
+import css from "./MoviesPage.module.css"
 import { Link, Outlet } from 'react-router-dom';
-import MovieList from '../components/MovieList/MovieList';
+import MovieList from '../../components/MovieList/MovieList';
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
-import SearchForm from "../components/SearchForm/SearchForm";
-import { getProductsSerch } from '../tmdb-movies';
+import SearchForm from "../../components/SearchForm/SearchForm";
+import { getProductsSerch } from '../../tmdb-movies';
 
 export default function MaviesPage() {
     const [products, setProduct] = useState([]);
@@ -27,22 +28,27 @@ export default function MaviesPage() {
     }, [owner]);
 
     return (
-        <main>
-            <SearchForm />
-            {products.length > 0 && <MovieList products={products} />}
-            <ul>
-                <li>
-                    <Link to="movie ">Movie </Link>
-                </li>
-                <li>
-                    <Link to="reviews">Reviews </Link>
-                </li>
-                <li>
-                    <p> Plese use this link to go Home <Link to="/">back to home</Link></p>
-                </li>
-            </ul>
-            <Outlet />
-        </main>
+        <>
+            <main >
+                <SearchForm />
+                {products.length > 0 && <MovieList products={products} />}
+
+            </main>
+            {/* <section className={css.cartSection}>
+                <ul>
+                    <li>
+                        <Link to="movie "> <h2>Movie</h2> </Link>
+                    </li>
+                    <li>
+                        <Link to="reviews"><h2>Reviews</h2> </Link>
+                    </li>
+                    <li>
+                        <p> Plese use this link to go Home <Link to="/">back to home</Link></p>
+                    </li>
+                </ul>
+                <Outlet />
+            </section> */}
+        </>
     );
 }
 

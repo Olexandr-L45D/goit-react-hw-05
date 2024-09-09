@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react"
 import css from './App.module.css';
 const HomePage = lazy(() => import("../../pages/HomePage"));
-const MaviesPage = lazy(() => import("../../pages/MaviesPage"));
+const MaviesPage = lazy(() => import("../../pages/MaviesPage/MaviesPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage/MovieDetailsPage"));
 const Navigation = lazy(() => import("../Navigation/Navigation"));
 const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
 const Movies = lazy(() => import("../Movies/Movies"));
-const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
+//const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
           <Route path='/movies/:movieId' element={<MovieDetailsPage />} >
             <Route path="movie" element={<Movies />} />
             <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} />
+            {/* <Route path="reviews" element={<MovieReviews />} /> */}
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

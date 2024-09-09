@@ -53,6 +53,21 @@ export default function MovieDetailsPage() {
                     </div>
                 </div>
             </div>
+            <section className={css.cartSection}>
+                <h2>Additional information</h2>
+                <ul>
+                    <li>
+                        <Link to="movie "> <h3 className={css.comTitles}>Cast</h3> </Link>
+                    </li>
+                    <li>
+                        <Link to="reviews"><h3 className={css.comTitles}>Reviews</h3> </Link>
+                    </li>
+                    <li>
+                        <p className={css.com}> Plese use this link to go Home <Link to="/">back to home</Link></p>
+                    </li>
+                </ul>
+                <Outlet />
+            </section>
             <Suspense fallback={<div>LOADING DetailsVideo...</div>}>
                 <Outlet />
             </Suspense>

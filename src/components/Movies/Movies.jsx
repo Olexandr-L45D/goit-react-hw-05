@@ -19,38 +19,27 @@ export default function Movies() {
                 setDetail(data);
                 setLoading(false);
             } catch (error) {
-                setError("Sorry nothing found");
+                setError("Sorry");
             }
         }
         fechData();
     }, [movieId])
 
     return (
-        <div>
-            <div className={css.detailsCart}>
-                <div className={css.cartImagBut}>
-                    <img src={`https://image.tmdb.org/t/p/w500/${detail.poster_path}`} alt={detail.title} />
+        <>
+            <div className={css.cartImagActor}>
+                <img src={`https://image.tmdb.org/t/p/w200/${detail.profile_path}`} alt={detail.name} />
+
+                <div className={css.cartComent}>
+                    <h4 className={css.comTitles}> Name : </h4>
+                    <p className={css.comTitle}>{detail.name}</p>
                 </div>
-                <div className={css.cartCont}>
-                    <div className={css.cartTitle}>
-                        <h3 className={css.comTitle}>{detail.title}</h3>
-                        <p className={css.comDate}>({detail.release_date})</p>
-                    </div>
-                    <div className={css.cartComent}>
-                        <h4 className={css.comTitles}> User Score : </h4>
-                        <p className={css.comIte}>({detail.vote_average}%)</p>
-                    </div>
-                    <div className={css.cartComent}>
-                        <h4 className={css.comTitlesOv}> Overview : </h4>
-                        <p className={css.comItes}>{detail.overview}</p>
-                    </div>
-                    <div className={css.cartComent}>
-                        <h4 className={css.comTitles}> Status : </h4>
-                        <p className={css.comIte}>{detail.status}</p>
-                    </div>
+
+                <div className={css.cartComent}>
+                    <h4 className={css.comTitles}> Character : </h4>
+                    <p className={css.comIte}>{detail.character}</p>
                 </div>
             </div>
-
-        </div>
+        </>
     );
 };

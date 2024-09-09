@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getProductReviews } from "../../tmdb-movies";
-import css from "./Movies.module.css"
+import css from "./MovieReviews.module.css"
 import { FcCamcorderPro } from "react-icons/fc";
 
 
@@ -34,6 +34,7 @@ export default function Movies({ product: { movie_id, name, language } }) {
             <div className={css.itemText}>
                 <p className={css.text}><FcCamcorderPro />{name}</p>
                 <p className={css.text}>Language: {language}</p>
+                <p className={css.text}> {movie_id}</p>
 
             </div>
 

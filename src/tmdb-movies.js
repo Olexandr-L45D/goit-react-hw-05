@@ -44,12 +44,12 @@ export const getProductDetails = async (movie_id) => {
 
 //getProductCast робить запит на УРЛ to component Movies
 export const getProductCast = async (movie_id) => {
-    const response = await instance.get(`/movie/${movie_id}`)
+    const response = await instance.get(`/movie/${movie_id}/credits`)
     console.log(response.data)
     return {
-        title: response.data.title, poster_path: response.data.poster_path, release_date: response.data.release_date,
-        vote_average: response.data.vote_average, overview: response.data.overview, status: response.data.status,
-        // genres: { id: response.data.id, name: response.data.name },
+        profile_path: response.data.profile_path, character: response.data.character,
+        name: response.data.name,
+
     }
 };
 

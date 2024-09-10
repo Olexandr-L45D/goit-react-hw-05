@@ -6,7 +6,7 @@ const instance = axios.create({
     headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTA1YjQwYTViZDU5OTA1NDIyMGY0NDk3YmEzYjJmNSIsIm5iZiI6MTcyNTU5NDQyMy4yODc1ODgsInN1YiI6IjY2ZDllMWM1ZDhlODg1YWI4NDZkMDkxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TvbdXQqddSub5Mw59Uixse-OSNQE4Xunk36NlBhj_AM' }
 });
 
-//getProductMovies робить запит на УРЛ to SearchForm
+//getProductMovies робить запит на УРЛ до SearchForm
 async function getProductsSerch(query, page = 1) {
     const response = await instance.get(`/search/movie`,
         {
@@ -20,12 +20,12 @@ async function getProductsSerch(query, page = 1) {
             },
         },
     )
-    console.log(response.data.results)
+    // console.log(response.data.results)
     return response.data.results;
 };
 export { getProductsSerch };
 
-//getProductMovies робить запит на УРЛ to HomePage
+//getProductMovies робить запит на УРЛ до HomePage
 export const getProductMovies = async () => {
     const response = await instance.get('/trending/movie/day')
     return response.data.results;
@@ -34,7 +34,7 @@ export const getProductMovies = async () => {
 //getProductDetails робить запит на УРЛ з деталізацією про товар (додаю в окремий стан при монтуванні в компонент MovieDetailsPage)
 export const getProductDetails = async (movie_id) => {
     const response = await instance.get(`/movie/${movie_id}`)
-    console.log(response.data)
+    // console.log(response.data)
     return {
         title: response.data.title, poster_path: response.data.poster_path, release_date: response.data.release_date,
         vote_average: response.data.vote_average, overview: response.data.overview, status: response.data.status,
@@ -42,22 +42,40 @@ export const getProductDetails = async (movie_id) => {
     }
 };
 
-//getProductCast робить запит на УРЛ to component Movies
-export const getProductCast = async (movie_id) => {
-    const response = await instance.get(`/movie/${movie_id}/credits`)
-    console.log(response.data)
-    return {
-        profile_path: response.data.profile_path, character: response.data.character,
-        name: response.data.name,
+//getProductCast робить запит на УРЛ to component MovieCast
+// export const getProductCast = async (movie_id) => {
+//     const response = await instance.get(`/movie/${movie_id}/credits`)
+//     console.log(response.data)
+//     return {
+//         profile_path: response.data.profile_path, character: response.data.character,
+//         name: response.data.name,
 
-    }
+//     }
+// };
+
+export const getProductCast = async (movie_id) => {
+    const response = await instance.get(`/movie/${movie_id}/credits`, {
+        params: {
+            movie_id,
+        },
+    });
+    return response.data.cast;
 };
 
-//getProductReviews робить запит на УРЛ to component MovieReviews
-export const getProductReviews = async () => {
-    const response = await instance.get(`/movie/${movie_id}/reviews`)
+export const getProductReviews = async (movie_id) => {
+    const response = await instance.get(`/movie/${movie_id}/reviews`, {
+        params: {
+            movie_id,
+        },
+    });
+
     return response.data.results;
 };
+// //getProductReviews робить запит на УРЛ to component MovieReviews
+// export const getProductReviews = async () => {
+//     const response = await instance.get(`/movie/${movie_id}/reviews`)
+//     return response.data.results;
+// };
 
 
 

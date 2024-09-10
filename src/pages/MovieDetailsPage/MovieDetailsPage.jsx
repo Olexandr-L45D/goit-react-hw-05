@@ -4,13 +4,15 @@ import { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from '../../tmdb-movies';
 import { GoArrowLeft } from "react-icons/go";
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 
 export default function MovieDetailsPage() {
     const [detail, setDetail] = useState("");
     const { movieId } = useParams();
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const location = useLocation();
+
     useEffect(() => {
         async function fechData() {
             try {
@@ -29,9 +31,10 @@ export default function MovieDetailsPage() {
     // console.log(detail);
     return (
         <div>
+            <Link to={location.state ?? '/'} >Go bak</Link>
             <div className={css.detailsCart}>
                 <div className={css.cartImagBut}>
-                    <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to="/">Go back</NavLink> </button>
+                    {/* <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to="/">Go back</NavLink> </button> */}
                     <img src={`https://image.tmdb.org/t/p/w200/${detail.poster_path}`} alt={detail.title} />
                 </div>
                 <div className={css.cartCont}>

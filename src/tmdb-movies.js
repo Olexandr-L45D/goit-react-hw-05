@@ -16,6 +16,7 @@ async function getProductsSerch(query, page = 1) {
                 include_adult: false,
                 language: "en-US",
                 region: "string",
+                movie_id: movie_id,
                 year: "string"
             },
         },

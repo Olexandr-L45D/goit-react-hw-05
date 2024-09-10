@@ -31,10 +31,9 @@ export default function MovieDetailsPage() {
     // console.log(detail);
     return (
         <div>
-            <Link to={location.state ?? '/'} >Go bak</Link>
+            <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
             <div className={css.detailsCart}>
                 <div className={css.cartImagBut}>
-                    {/* <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to="/">Go back</NavLink> </button> */}
                     <img src={`https://image.tmdb.org/t/p/w200/${detail.poster_path}`} alt={detail.title} />
                 </div>
                 <div className={css.cartCont}>
@@ -72,7 +71,7 @@ export default function MovieDetailsPage() {
                 <Outlet />
             </section>
             <Suspense fallback={<div>LOADING DetailsVideo...</div>}>
-                <Outlet />
+                {/* <Outlet /> */}
             </Suspense>
         </div>
     );

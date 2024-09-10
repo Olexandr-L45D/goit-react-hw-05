@@ -46,6 +46,7 @@ const MovieCast = () => {
                 <ul className={css.container}>
                     {cast.map(({ character, name, profile_path, id, gender }) => (
                         <li key={id}>
+
                             <div className={css.cartImagActor}>
                                 {profile_path ? (
                                     <img
@@ -61,6 +62,7 @@ const MovieCast = () => {
                                         )}
                                     </div>
                                 )}
+
                                 <div className={css.cartComent}>
                                     <p className={css.text}>
                                         <strong>Actor:</strong> {name}

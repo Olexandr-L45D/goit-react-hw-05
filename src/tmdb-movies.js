@@ -16,7 +16,6 @@ async function getProductsSerch(query, page = 1) {
                 include_adult: false,
                 language: "en-US",
                 region: "string",
-                movie_id: movie_id,
                 year: "string"
             },
         },
@@ -43,17 +42,6 @@ export const getProductDetails = async (movie_id) => {
     }
 };
 
-//getProductCast робить запит на УРЛ to component MovieCast
-// export const getProductCast = async (movie_id) => {
-//     const response = await instance.get(`/movie/${movie_id}/credits`)
-//     console.log(response.data)
-//     return {
-//         profile_path: response.data.profile_path, character: response.data.character,
-//         name: response.data.name,
-
-//     }
-// };
-
 export const getProductCast = async (movie_id) => {
     const response = await instance.get(`/movie/${movie_id}/credits`, {
         params: {
@@ -72,12 +60,6 @@ export const getProductReviews = async (movie_id) => {
 
     return response.data.results;
 };
-// //getProductReviews робить запит на УРЛ to component MovieReviews
-// export const getProductReviews = async () => {
-//     const response = await instance.get(`/movie/${movie_id}/reviews`)
-//     return response.data.results;
-// };
-
 
 
 

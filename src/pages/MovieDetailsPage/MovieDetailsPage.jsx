@@ -71,7 +71,7 @@ export default function MovieDetailsPage() {
                 <Outlet />
             </section>
             <Suspense fallback={<div>LOADING DetailsVideo...</div>}>
-                {/* <Outlet /> */}
+                <Outlet />
             </Suspense>
         </div>
     );

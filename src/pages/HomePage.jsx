@@ -1,12 +1,11 @@
 // HomePage
 import { useState, useEffect } from "react"
 import { getProductMovies } from '../tmdb-movies';
-//import { useSearchParams } from 'react-router-dom';
 import MovieList from "../components/MovieList/MovieList"
 
 export default function HomePage() {
     const [products, setProduct] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {

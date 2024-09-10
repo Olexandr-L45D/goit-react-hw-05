@@ -6,6 +6,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { getProductCast } from '../../tmdb-movies';
 import css from "./MovieCast.module.css";
+import { FcCamcorderPro } from "react-icons/fc";
 
 const MovieCast = () => {
     const { movieId } = useParams();

@@ -9,9 +9,6 @@ import { getProductsSerch } from '../../tmdb-movies';
 
 export default function MaviesPage() {
     const [products, setProduct] = useState([]);
-    // const [loading, setLoading] = useState(false)
-    // const [error, setError] = useState(false)
-
     const [params] = useSearchParams();
     const owner = params.get("owner") ?? "";
 
@@ -23,15 +20,33 @@ export default function MaviesPage() {
         fetchData();
     }, [owner]);
 
+
     return (
         <>
             <main >
                 <SearchForm />
                 {products.length > 0 && <MovieList products={products} />}
-
             </main>
-
         </>
     );
 }
 
+
+
+
+
+
+
+
+
+
+
+// try {
+//     // setLoading(true);
+//     // setError(false);
+//     // const data = await getProductsSerch(owner);
+//     // setProduct(data);
+//     // setLoading(false);
+// } catch (error) {
+//     // setError("Sorry nothing found");
+// }

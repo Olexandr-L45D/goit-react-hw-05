@@ -9,7 +9,9 @@ export default function MovieList({ products }) {
             <ul className={css.list}>
                 {products.map((product) => (
                     <li key={product.id}>
-                        <Link to={`/movies/${product.id}`} state={location} ><h4 className={css.titles}>{product.title}</h4></Link>
+                        <Link to={`/movies/${product.id}`} state={location} ><h4 className={css.titles}>{product.title}</h4>
+
+                        </Link>
                     </li>
                 ))}
             </ul>

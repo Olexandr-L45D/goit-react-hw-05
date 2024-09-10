@@ -1,4 +1,4 @@
-// Navigation (типу хедера з навігацією)
+
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
@@ -22,4 +22,7 @@ export default function Navigation() {
     );
 };
 
-// Navigation = header
+
+
+
+// Navigation (типу хедера з навігацією)

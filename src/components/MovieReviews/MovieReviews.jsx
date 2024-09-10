@@ -6,12 +6,15 @@ import { useParams } from "react-router-dom";
 import { getProductReviews } from "../../tmdb-movies";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { GoArrowLeft } from "react-icons/go";
+import { NavLink, useLocation } from "react-router-dom";
 
 const MovieReviews = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const controller = new AbortController();
@@ -48,7 +51,7 @@ const MovieReviews = () => {
                 <ul className={css.container}>
                     {reviews.map((review) => (
                         <li key={review.id}>
-                            <p>
+                            <p> <FcCamcorderPro className={css.icon} />
                                 <strong className={css.text}>{review.author}</strong>
                             </p>
                             <p className={css.text}>{review.content}</p>
@@ -56,27 +59,13 @@ const MovieReviews = () => {
                     ))}
                 </ul>
             ) : (
-                <p className={css.error}> ny reviews for this movie!</p>
+                <p className={css.error}> Any reviews for this movie!</p>
             )}
+            <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
         </div>
     );
 };
 
 export default MovieReviews;
-
-
-
-//     return (
-//         <div className={css.item}>
-//             <div className={css.itemText}>
-//                 <p className={css.text}><FcCamcorderPro />{name}</p>
-//                 <p className={css.text}>Language: {language}</p>
-//                 <p className={css.text}> {movie_id}</p>
-
-//             </div>
-
-//         </div>
-//     );
-// }
 
 

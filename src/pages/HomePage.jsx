@@ -1,4 +1,3 @@
-
 // HomePage
 import { useState, useEffect } from "react"
 import { getProductMovies } from '../tmdb-movies';
@@ -32,8 +31,4 @@ export default function HomePage() {
         </main>
     );
 }
-
-
-// {/* <ul >   <MovieList products={visibleTasks}  />  </ul> */ }
-// це додаю в іншу на серч при пошуку products={visibleTasks}
 

@@ -2,19 +2,21 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react"
 import css from './App.module.css';
+const Navigation = lazy(() => import("../Navigation/Navigation"));
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const MaviesPage = lazy(() => import("../../pages/MaviesPage/MaviesPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage/MovieDetailsPage"));
-const Navigation = lazy(() => import("../Navigation/Navigation"));
 const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
 const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 
 export default function App() {
   return (
     <div className={css.container}>
-      <Navigation />
-      <Suspense fallback={<div>LOADING General-Video...</div>}>
+      <Suspense fallback={<div>LOADING list of movies...</div>}>
+        <Navigation />
+      </Suspense>
+      <Suspense fallback={<div>LOADING Ditails...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path='/movies' element={<MaviesPage />} />

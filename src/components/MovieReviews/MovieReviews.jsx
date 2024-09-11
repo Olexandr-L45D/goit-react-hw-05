@@ -61,7 +61,7 @@ const MovieReviews = () => {
             ) : (
                 <p className={css.error}> Any reviews for this movie!</p>
             )}
-            <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
+            <button className={css.buttonIcon}><GoArrowLeft className={css.icons} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
         </div>
     );
 };

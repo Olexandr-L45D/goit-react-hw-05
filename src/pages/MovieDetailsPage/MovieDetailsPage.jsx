@@ -1,17 +1,20 @@
 
 import css from "./MovieDetailsPage.module.css"
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from '../../tmdb-movies';
 import { GoArrowLeft } from "react-icons/go";
-import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export default function MovieDetailsPage() {
     const [detail, setDetail] = useState("");
     const { movieId } = useParams();
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const navigate = useNavigate();
     const location = useLocation();
+    const moviLinkRef = useRef(location.state ?? "/movies");
+    const onClickBack = () => navigate(moviLinkRef.current);
 
     useEffect(() => {
         async function fechData() {
@@ -31,7 +34,7 @@ export default function MovieDetailsPage() {
     // console.log(detail);
     return (
         <div>
-            <button className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
+            <button onClick={onClickBack} className={css.buttonIcon}><GoArrowLeft className={css.icon} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
             <div className={css.detailsCart}>
                 <div className={css.cartImagBut}>
                     <img src={`https://image.tmdb.org/t/p/w200/${detail.poster_path}`} alt={detail.title} />
@@ -59,7 +62,7 @@ export default function MovieDetailsPage() {
                 <h2>Additional information</h2>
                 <ul>
                     <li>
-                        <Link to="movie "> <h3 className={css.comTitles}>Cast</h3> </Link>
+                        <Link to="cast"> <h3 className={css.comTitles}>Cast</h3> </Link>
                     </li>
                     <li>
                         <Link to="reviews"><h3 className={css.comTitles}>Reviews</h3> </Link>

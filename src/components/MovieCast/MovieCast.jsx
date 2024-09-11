@@ -1,18 +1,20 @@
 // MovieCast
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { IoManSharp, IoWomanSharp } from "react-icons/io5";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { getProductCast } from '../../tmdb-movies';
 import css from "./MovieCast.module.css";
-import { FcCamcorderPro } from "react-icons/fc";
+import { GoArrowLeft } from "react-icons/go";
+
 
 const MovieCast = () => {
     const { movieId } = useParams();
     const [cast, setCast] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const controller = new AbortController();
@@ -78,7 +80,8 @@ const MovieCast = () => {
                 </ul>
             ) : (
                 <p className={css.error}>We don't have movie!</p>
-            )}
+            )};
+            <button className={css.buttonIcon}><GoArrowLeft className={css.icons} /> <NavLink to={location.state ?? '/'} >Go back</NavLink> </button>
         </div>
     );
 };
